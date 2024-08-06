@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SearchIcon from "../Icon/SearchIcon";
 import classNames from "classnames";
-import { firstLetterCapital } from "../../utils/string";
 
 export default function Search() {
   const TABS = [
