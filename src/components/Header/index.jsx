@@ -5,19 +5,18 @@ import Search from "./Search";
 
 export default function Header() {
   const location = useLocation();
-  console.log(location);
 
   const MENU_ITEMS = [
     {
       name: "Explore",
-      link: "/explore",
+      link: "/stock/explore",
       active: function () {
         return location.pathname === this.link;
       },
     },
     {
       name: "Investments",
-      link: "/investments",
+      link: "/stock/investments",
       active: function () {
         return location.pathname === this.link;
       },
@@ -26,9 +25,9 @@ export default function Header() {
   return (
     <section className="py-2">
       <div className="container">
-        <div className="flex justify-between gap-10 items-center">
+        <div className="flex items-center justify-between gap-10">
           <nav>
-            <ul className="flex space-x-3 ml-10">
+            <ul className="flex ml-10 space-x-3">
               {MENU_ITEMS.map((menuItem) => (
                 <li key={menuItem.link}>
                   <Link
@@ -50,7 +49,7 @@ export default function Header() {
           <Search />
 
           <div className="profile">
-            <div className="w-10 text-xl text-center leading-10 h-10 bg-primary-500 rounded-full text-white">
+            <div className="w-10 h-10 text-xl leading-10 text-center text-white rounded-full bg-primary-500">
               M
             </div>
           </div>

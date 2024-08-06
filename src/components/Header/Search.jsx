@@ -92,7 +92,7 @@ export default function Search() {
                     className={classNames(
                       "px-4 py-1 text-xs  rounded-full border cursor-pointer",
                       {
-                        "text-primary-500 border-green-500":
+                        "text-primary-500 border-primary-500":
                           activeTab === tabIndex,
                         "text-gray-500 border-gray-150": activeTab !== tabIndex,
                       }
