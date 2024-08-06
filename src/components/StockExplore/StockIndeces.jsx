@@ -2,7 +2,7 @@ import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function StockIndexes() {
+export default function StockIndeces() {
   const INDICES = [
     {
       name: "NIFTY",
