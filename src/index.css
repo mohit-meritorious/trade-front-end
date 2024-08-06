@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-gray-900 m-0 box-border;
+  @apply box-border m-0 text-gray-900 bg-white;
 }

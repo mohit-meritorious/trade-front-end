@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
+import StockIndexes from "../components/StockExplore/StockIndexes";
 
 export default function StockExplore() {
   return (
-    <>
-      <Header></Header>
-    </>
+    <div className="mt-10 space-y-4">
+      <StockIndexes></StockIndexes>
+    </div>
   );
 }
