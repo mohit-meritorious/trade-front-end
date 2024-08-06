@@ -13,6 +13,15 @@ export default function Search() {
   const [activeTab, setActiveTab] = useState(0);
   const [showSuggetions, setShowSuggetions] = useState(false);
   const result = {
+    recent: [
+      { name: "Zomato Ltd", type: "stock" },
+      { name: "NIFTY 08 Aug 24800 Call", type: "fno" },
+      { name: "Parag Parikh Flexi Cap Fund", type: "mf" },
+      {
+        name: "Indian Railway Finance Corporation Ltd.",
+        type: "stock",
+      },
+    ],
     all: [
       { name: "Zomato Ltd", result: "trend" },
       { name: "Suzlon Energy Ltd", result: "trend" },
@@ -91,6 +100,21 @@ export default function Search() {
                     )}
                   >
                     {tab.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="px-4 py-2 text-base font-medium text-gray-800">
+                Recent Search
+              </h2>
+              <ul>
+                {result.recent.map((stock) => (
+                  <li
+                    key={stock.name}
+                    className="px-4 py-2 pl-6 text-sm text-gray-500"
+                  >
+                    {stock.name}
                   </li>
                 ))}
               </ul>
