@@ -95,6 +95,11 @@ const GAINERS = {
     },
   ],
 };
+const LOSERS = {
+  large: GAINERS.small.map((stock) => ({ ...stock, bullish: !stock.bullish })),
+  mid: GAINERS.large.map((stock) => ({ ...stock, bullish: !stock.bullish })),
+  small: GAINERS.mid.map((stock) => ({ ...stock, bullish: !stock.bullish })),
+};
 export default function StockExplore() {
   return (
     <div className="mt-10 space-y-4">
@@ -105,7 +110,7 @@ export default function StockExplore() {
       ></TopLosersOrGainer>
       <TopLosersOrGainer
         heading={"Top Losers"}
-        data={GAINERS}
+        data={LOSERS}
       ></TopLosersOrGainer>
     </div>
   );
