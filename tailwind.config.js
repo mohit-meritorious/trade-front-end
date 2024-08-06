@@ -7,7 +7,7 @@ module.exports = {
         center: true,
       },
       colors: {
-        primary: { 500: "#00b386" },
+        primary: { 500: "#f83e50" },
         gray: {
           150: "#e9e9eb",
           700: "#7c7e8c",
