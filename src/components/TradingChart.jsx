@@ -97,10 +97,10 @@ export default function TradingChart() {
         wickUpColor: "#26a69a",
         wickDownColor: "#ef5350",
       });
-      const res = await axios.get(
-        "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=1UEXM3AM6E96BAYO"
-      );
-      console.log(res);
+      // const res = await axios.get(
+      //   "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=1UEXM3AM6E96BAYO"
+      // );
+      // console.log(res);
 
       const data = {
         "2024-08-02 19:55:00": {

@@ -48,6 +48,12 @@ export default function Header() {
             </ul>
           </nav>
           <Search />
+
+          <div className="profile">
+            <div className="w-10 text-xl text-center leading-10 h-10 bg-primary-500 rounded-full text-white">
+              M
+            </div>
+          </div>
         </div>
       </div>
     </section>
