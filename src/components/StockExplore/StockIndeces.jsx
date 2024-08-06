@@ -1,6 +1,6 @@
-import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
+import IndexCard from "../IndexCard";
 
 export default function StockIndeces() {
   const INDICES = [
@@ -63,23 +63,14 @@ export default function StockIndeces() {
         style={{ scrollbarWidth: "none" }}
       >
         {INDICES.map((index) => (
-          <li
+          <IndexCard
             key={index.name}
-            className="flex-shrink-0 px-4 py-2 border rounded-lg shadow border-gray-150"
-          >
-            <h3 className="text-sm">{index.name}</h3>
-            <div className="text-xs text-gray-500">
-              {index.value}{" "}
-              <span
-                className={classNames({
-                  "text-green-500": index.bullish,
-                  "text-red-500": !index.bullish,
-                })}
-              >
-                ({index.change} | {index.percentChange}%)
-              </span>
-            </div>
-          </li>
+            name={index.name}
+            bullish={index.bullish}
+            change={index.change}
+            percentChange={index.percentChange}
+            value={index.value}
+          />
         ))}
       </ul>
     </div>
