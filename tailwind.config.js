@@ -5,9 +5,10 @@ module.exports = {
     extend: {
       container: {
         center: true,
+        padding: "1rem",
       },
       colors: {
-        primary: { 500: "#FFAD60" },
+        primary: { 100: "#fff3e7", 500: "#ffad60" },
         gray: {
           150: "#e9e9eb",
           700: "#7c7e8c",

@@ -58,11 +58,14 @@ export default function StockIndeces() {
           All indices
         </Link>
       </div>
-      <ul className="flex space-x-2">
+      <ul
+        className="flex space-x-2 overflow-x-auto"
+        style={{ scrollbarWidth: "none" }}
+      >
         {INDICES.map((index) => (
           <li
             key={index.name}
-            className="px-4 py-2 border rounded-lg shadow border-gray-150"
+            className="flex-shrink-0 px-4 py-2 border rounded-lg shadow border-gray-150"
           >
             <h3 className="text-sm">{index.name}</h3>
             <div className="text-xs text-gray-500">
