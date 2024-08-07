@@ -56,11 +56,6 @@ export default function StockIndeces() {
 
   useEffect(() => {
     if (indicesContainerRef.current) {
-      console.log(
-        "run",
-        indicesContainerRef.current.scrollWidth,
-        indicesContainerRef.current.clientWidth
-      );
       if (
         indicesContainerRef.current.scrollWidth >
         indicesContainerRef.current.clientWidth
@@ -85,6 +80,22 @@ export default function StockIndeces() {
           ref={indicesContainerRef}
           className="flex space-x-2 overflow-x-auto scroll-smooth"
           style={{ scrollbarWidth: "none" }}
+          onScroll={(e) => {
+            const element = e.target;
+            if (
+              element.scrollLeft + element.clientWidth + 1 >=
+              element.scrollWidth
+            ) {
+              setShowScrollIndicator((prev) => ({ ...prev, right: false }));
+            } else {
+              setShowScrollIndicator((prev) => ({ ...prev, right: true }));
+            }
+            if (element.scrollLeft === 0) {
+              setShowScrollIndicator((prev) => ({ ...prev, left: false }));
+            } else {
+              setShowScrollIndicator((prev) => ({ ...prev, left: true }));
+            }
+          }}
         >
           {INDICES.map((index, i) => (
             <IndexCard
