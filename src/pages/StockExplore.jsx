@@ -104,7 +104,7 @@ const LOSERS = {
 export default function StockExplore() {
   return (
     <div className="flex gap-3 mt-10">
-      <div className="space-y-4">
+      <div className="w-7/12 space-y-4">
         <StockIndeces></StockIndeces>
         <TopLosersOrGainer
           heading={"Top Gainer"}

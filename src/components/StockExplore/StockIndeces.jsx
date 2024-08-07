@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import IndexCard from "../IndexCard";
+import ChevronRightIcon from "../Icon/ChevronRightIcon";
 
 export default function StockIndeces() {
   const INDICES = [
@@ -47,6 +48,27 @@ export default function StockIndeces() {
       bullish: true,
     },
   ];
+  const indicesContainerRef = useRef();
+  const [showScrollIndicator, setShowScrollIndicator] = useState({
+    left: false,
+    right: false,
+  });
+
+  useEffect(() => {
+    if (indicesContainerRef.current) {
+      console.log(
+        "run",
+        indicesContainerRef.current.scrollWidth,
+        indicesContainerRef.current.clientWidth
+      );
+      if (
+        indicesContainerRef.current.scrollWidth >
+        indicesContainerRef.current.clientWidth
+      ) {
+        setShowScrollIndicator({ left: false, right: true });
+      }
+    }
+  }, []);
   return (
     <div className="space-y-2">
       <div className="flex gap-2 heading">
@@ -58,21 +80,71 @@ export default function StockIndeces() {
           All indices
         </Link>
       </div>
-      <ul
-        className="flex space-x-2 overflow-x-auto"
-        style={{ scrollbarWidth: "none" }}
-      >
-        {INDICES.map((index) => (
-          <IndexCard
-            key={index.name}
-            name={index.name}
-            bullish={index.bullish}
-            change={index.change}
-            percentChange={index.percentChange}
-            value={index.value}
-          />
-        ))}
-      </ul>
+      <div className="relative h-full">
+        <ul
+          ref={indicesContainerRef}
+          className="flex space-x-2 overflow-x-auto scroll-smooth"
+          style={{ scrollbarWidth: "none" }}
+        >
+          {INDICES.map((index, i) => (
+            <IndexCard
+              key={index.name}
+              name={index.name}
+              bullish={index.bullish}
+              change={index.change}
+              percentChange={index.percentChange}
+              value={index.value}
+            />
+          ))}
+        </ul>
+        {showScrollIndicator.left && (
+          <button
+            onClick={() => {
+              let element = indicesContainerRef.current;
+              if (element) {
+                if (element.scrollWidth > element.clientWidth) {
+                  setShowScrollIndicator((prev) => ({
+                    ...prev,
+                    right: true,
+                  }));
+                }
+                element.scrollLeft -= element.clientWidth;
+                if (element.scrollLeft - element.clientWidth <= 0) {
+                  setShowScrollIndicator((prev) => ({ ...prev, left: false }));
+                }
+              }
+            }}
+            className="absolute left-0 grid w-10 h-10 -translate-x-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full top-1/2 place-items-center"
+          >
+            <ChevronRightIcon className={"size-4 rotate-180"} />
+          </button>
+        )}
+        {showScrollIndicator.right && (
+          <button
+            onClick={() => {
+              let element = indicesContainerRef.current;
+              if (element) {
+                if (element.scrollWidth > element.clientWidth) {
+                  setShowScrollIndicator((prev) => ({
+                    ...prev,
+                    left: true,
+                  }));
+                }
+                element.scrollLeft += element.clientWidth;
+                if (
+                  element.scrollLeft + element.clientWidth * 2 >=
+                  element.scrollWidth
+                ) {
+                  setShowScrollIndicator((prev) => ({ ...prev, right: false }));
+                }
+              }
+            }}
+            className="absolute right-0 grid w-10 h-10 translate-x-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full top-1/2 place-items-center"
+          >
+            <ChevronRightIcon className={"size-4"} />
+          </button>
+        )}
+      </div>
     </div>
   );
 }
