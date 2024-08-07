@@ -1,8 +1,13 @@
 import classNames from "classnames";
 import React, { Fragment, useState } from "react";
+import { motion } from "framer-motion";
 
 export default function WatchLists() {
   const [openWatchlist, setOpenWatchlist] = useState(0);
+  const variants = {
+    open: { opacity: 1, duration: 300, height: "auto", visibility: "visible" },
+    closed: { opacity: 0, duration: 300, height: 0, visibility: "hidden" },
+  };
   const WATCHLISTS = {
     watchlist1: {
       name: "My Watchlist",
@@ -127,7 +132,7 @@ export default function WatchLists() {
   };
   const handleAccordionClick = (acordionNumber) => {
     if (openWatchlist === acordionNumber) {
-      return setOpenWatchlist(0);
+      return setOpenWatchlist(-1);
     }
     return setOpenWatchlist(acordionNumber);
   };
@@ -141,20 +146,20 @@ export default function WatchLists() {
           <Fragment key={watchlist}>
             <h3
               onClick={() => {
-                handleAccordionClick(i + 1);
+                handleAccordionClick(i);
               }}
               id="accordion-collapse-heading-1"
             >
               <button
                 type="button"
                 className={classNames(
-                  "flex items-center justify-between w-full gap-3 p-5 font-medium text-gray-500 border border-gray-200 rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
+                  "flex items-center justify-between transition-all duration-300 w-full gap-3 p-5 font-medium text-gray-500 border border-gray-200 rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
                   {
                     "rounded-t-xl": i === 0,
                     "border-b-0": i + 1 !== Object.keys(WATCHLISTS).length,
                     "rounded-b-xl":
                       i + 1 === Object.keys(WATCHLISTS).length &&
-                      openWatchlist !== i + 1,
+                      openWatchlist !== i,
                   }
                 )}
                 data-accordion-target="#accordion-collapse-body-1"
@@ -167,7 +172,7 @@ export default function WatchLists() {
                   className={classNames(
                     "w-3 h-3 transition-all duration-300 shrink-0",
                     {
-                      "rotate-180": openWatchlist === i + 1,
+                      "rotate-180": openWatchlist === i,
                     }
                   )}
                   aria-hidden="true"
@@ -185,13 +190,11 @@ export default function WatchLists() {
                 </svg>
               </button>
             </h3>
-            <div
+            <motion.div
               id="accordion-collapse-body-1"
-              className={classNames({
-                hidden: openWatchlist !== i + 1,
-                // "scale-y-0": openWatchlist !== i + 1,
-                // "scale-y-100": openWatchlist === i + 1,
-              })}
+              animate={openWatchlist !== i ? "closed" : "open"}
+              variants={variants}
+              className={"h-0"}
               aria-labelledby="accordion-collapse-heading-1"
             >
               <ul
@@ -230,7 +233,7 @@ export default function WatchLists() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </Fragment>
         ))}
       </div>
