@@ -2,6 +2,7 @@ import React from "react";
 import StockIndeces from "../components/StockExplore/StockIndeces";
 
 import TopLosersOrGainer from "../components/TopLosersOrGainer";
+import WatchLists from "../components/WatchLists";
 
 const GAINERS = {
   large: [
@@ -102,16 +103,21 @@ const LOSERS = {
 };
 export default function StockExplore() {
   return (
-    <div className="mt-10 space-y-4">
-      <StockIndeces></StockIndeces>
-      <TopLosersOrGainer
-        heading={"Top Gainer"}
-        data={GAINERS}
-      ></TopLosersOrGainer>
-      <TopLosersOrGainer
-        heading={"Top Losers"}
-        data={LOSERS}
-      ></TopLosersOrGainer>
+    <div className="flex gap-3 mt-10">
+      <div className="space-y-4">
+        <StockIndeces></StockIndeces>
+        <TopLosersOrGainer
+          heading={"Top Gainer"}
+          data={GAINERS}
+        ></TopLosersOrGainer>
+        <TopLosersOrGainer
+          heading={"Top Losers"}
+          data={LOSERS}
+        ></TopLosersOrGainer>
+      </div>
+      <div className="w-5/12 p-10 ">
+        <WatchLists />
+      </div>
     </div>
   );
 }
