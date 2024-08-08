@@ -199,13 +199,12 @@ export default function WatchLists() {
             >
               <ul
                 className={classNames(
-                  "max-w-md divide-y border  border-gray-200  divide-gray-200 dark:divide-gray-700",
+                  "divide-y border border-gray-200  divide-gray-200 dark:divide-gray-700",
                   {
-                    "border-t-0": i !== 0,
-                    "border-b-0": i + 1 !== Object.keys(WATCHLISTS).length,
-                    "rounded-b-xl":
+                    "border-b-0 ": i + 1 !== Object.keys(WATCHLISTS).length,
+                    "rounded-b-xl border-t-0":
                       i + 1 === Object.keys(WATCHLISTS).length &&
-                      openWatchlist === i + 1,
+                      openWatchlist === i,
                   }
                 )}
               >
