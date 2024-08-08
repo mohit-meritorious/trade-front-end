@@ -12,7 +12,7 @@ export default function Routes() {
     {
       path: "/",
       Component: Layout,
-
+      errorElement: <div>error occur</div>,
       children: [
         { path: "/", Component: Home },
         {

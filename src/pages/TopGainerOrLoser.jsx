@@ -202,13 +202,14 @@ export default function TopGainerOrLoser() {
   ];
   return (
     <div className="mt-10">
+      {/* <Tabs tabs={TABS} handleTabChange={() => {}} /> */}
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <ul className="flex flex-wrap mt-5 text-sm font-medium text-center text-gray-500 border-b border-gray-100 dark:border-gray-700 dark:text-gray-400">
           {TABS.map((tab, i) => (
             <li
               key={tab.name}
               className={classNames(
-                "me-2 border-b  p-3 dark:bg-gray-800 dark:text-primary-500 cursor-pointer",
+                "me-2 border-b  p-3 dark:bg-gray-800 transition-all duration-300 dark:text-primary-500 cursor-pointer",
                 {
                   "border-primary-500 bg-primary-100 text-primary-500":
                     i === activeTab,
