@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import StockInvestments from "./pages/StockInvestments";
 import AllIndices from "./pages/AllIndices";
 import Layout from "./components/Layout";
+import TopGainerOrLoser from "./pages/TopGainerOrLoser";
 
 export default function Routes() {
   const router = createBrowserRouter([
@@ -25,6 +26,10 @@ export default function Routes() {
         {
           path: "/indices",
           Component: AllIndices,
+        },
+        {
+          path: "/top-gainers-losers",
+          Component: TopGainerOrLoser,
         },
       ],
     },

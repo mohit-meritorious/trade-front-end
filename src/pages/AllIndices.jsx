@@ -144,7 +144,10 @@ export default function AllIndices() {
           </thead>
           <tbody>
             {INDICES.map((index) => (
-              <tr className="border-b border-gray-200 dark:border-gray-700">
+              <tr
+                className="border-b border-gray-200 dark:border-gray-700"
+                key={index.name}
+              >
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"

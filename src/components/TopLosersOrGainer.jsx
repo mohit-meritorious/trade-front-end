@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { useState } from "react";
 import StockCard from "./StockCard";
+import { Link } from "react-router-dom";
 
 export default function TopLosersOrGainer({ heading, data }) {
   const TABS = [
@@ -12,7 +13,15 @@ export default function TopLosersOrGainer({ heading, data }) {
 
   return (
     <div className="space-y-4">
-      <h2>{heading}</h2>
+      <div className="flex gap-2 heading">
+        <h2 className="grow ">{heading}</h2>
+        <Link
+          to={"/top-gainers-losers"}
+          className="text-sm transition-all duration-300 text-primary-500 shrink-0 underline-offset-0 hover:underline hover:underline-offset-4"
+        >
+          See more
+        </Link>
+      </div>
 
       <ul className="flex flex-wrap mt-5 text-sm font-medium text-center text-gray-500 border-b border-gray-100 dark:border-gray-700 dark:text-gray-400">
         {TABS.map((tab, i) => (
