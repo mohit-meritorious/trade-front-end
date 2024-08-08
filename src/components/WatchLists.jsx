@@ -1,9 +1,11 @@
 import classNames from "classnames";
 import React, { Fragment, useState } from "react";
 import { motion } from "framer-motion";
+import ChevronRightIcon from "./Icon/ChevronRightIcon";
+import AccordionChevronIcon from "./Icon/AccordionChevronIcon";
 
 export default function WatchLists() {
-  const [openWatchlist, setOpenWatchlist] = useState(0);
+  const [openWatchlist, setOpenWatchlist] = useState(-1);
   const variants = {
     open: { opacity: 1, duration: 300, height: "auto", visibility: "visible" },
     closed: { opacity: 0, duration: 300, height: 0, visibility: "hidden" },
@@ -167,27 +169,15 @@ export default function WatchLists() {
                 aria-controls="accordion-collapse-body-1"
               >
                 <span>{WATCHLISTS[watchlist].name}</span>
-                <svg
-                  data-accordion-icon
+
+                <AccordionChevronIcon
                   className={classNames(
                     "w-3 h-3 transition-all duration-300 shrink-0",
                     {
                       "rotate-180": openWatchlist === i,
                     }
                   )}
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M9 5 5 1 1 5"
-                  />
-                </svg>
+                />
               </button>
             </h3>
             <motion.div
