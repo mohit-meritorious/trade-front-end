@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import React, { Fragment, useState } from "react";
 import { motion } from "framer-motion";
-import ChevronRightIcon from "./Icon/ChevronRightIcon";
 import AccordionChevronIcon from "./Icon/AccordionChevronIcon";
 
 export default function WatchLists() {

@@ -3,6 +3,7 @@ import StockIndeces from "../components/StockExplore/StockIndeces";
 
 import TopLosersOrGainer from "../components/TopLosersOrGainer";
 import WatchLists from "../components/WatchLists";
+import MostBought from "../components/MostBought";
 
 const GAINERS = {
   large: [
@@ -106,6 +107,7 @@ export default function StockExplore() {
     <div className="flex gap-3 mt-10">
       <div className="w-7/12 space-y-4">
         <StockIndeces></StockIndeces>
+        <MostBought />
         <TopLosersOrGainer
           heading={"Top Gainer"}
           data={GAINERS}
