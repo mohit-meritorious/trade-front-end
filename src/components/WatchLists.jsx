@@ -154,7 +154,7 @@ export default function WatchLists() {
               <button
                 type="button"
                 className={classNames(
-                  "flex items-center justify-between transition-all duration-300 w-full gap-3 p-5 font-medium text-gray-500 border border-gray-200 rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
+                  "flex items-center text-sm lg:text-base justify-between transition-all duration-300 w-full gap-3 p-5 font-medium text-gray-500 border border-gray-200 rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800",
                   {
                     "rounded-t-xl": i === 0,
                     "border-b-0": i + 1 !== Object.keys(WATCHLISTS).length,

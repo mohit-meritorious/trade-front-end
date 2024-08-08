@@ -35,7 +35,7 @@ export default function MostBought() {
   return (
     <div className="space-y-4">
       <h2>Most Bought</h2>
-      <ul className="grid grid-cols-3 gap-4 md:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {MOST_BAUGHT.map((stock) => (
           <StockCard
             key={stock.name}
