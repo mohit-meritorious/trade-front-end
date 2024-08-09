@@ -32,6 +32,9 @@ export default function HoldingDetail({ holdings }) {
                 className="px-6 py-4 font-medium text-left text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
               >
                 {stock.name}
+                <div className="text-xs text-gray-500">
+                  {stock.qty} shares . Avg. ₹{stock.buyPrice}
+                </div>
               </th>
 
               <td className="px-6 py-4 ">

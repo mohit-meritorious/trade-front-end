@@ -2,6 +2,7 @@ import classNames from "classnames";
 import React, { Fragment, useState } from "react";
 import { motion } from "framer-motion";
 import AccordionChevronIcon from "./Icon/AccordionChevronIcon";
+import { Link } from "react-router-dom";
 
 export default function WatchLists() {
   const [openWatchlist, setOpenWatchlist] = useState(-1);
@@ -198,26 +199,28 @@ export default function WatchLists() {
                 )}
               >
                 {WATCHLISTS[watchlist].list.map((stock) => (
-                  <li
-                    key={stock.name}
-                    className="flex items-center p-1 px-4 space-x-4 rtl:space-x-reverse"
-                  >
-                    <p className="text-xs text-gray-500 truncate grow dark:text-white">
-                      {stock.name}
-                    </p>
-                    <div className="text-right">
-                      <p className="items-center text-sm text-gray-900 dark:text-white">
-                        {stock.value}
+                  <li key={stock.name} className="">
+                    <Link
+                      to="/chart"
+                      className="flex items-center p-1 px-4 space-x-4 rtl:space-x-reverse"
+                    >
+                      <p className="text-xs text-gray-500 truncate grow dark:text-white">
+                        {stock.name}
                       </p>
-                      <p
-                        className={classNames("text-xs", {
-                          "text-red-500": !stock.bullish,
-                          "text-green-500": stock.bullish,
-                        })}
-                      >
-                        {stock.change} ({stock.changePer}%)
-                      </p>
-                    </div>
+                      <div className="text-right">
+                        <p className="items-center text-sm text-gray-900 dark:text-white">
+                          {stock.value}
+                        </p>
+                        <p
+                          className={classNames("text-xs", {
+                            "text-red-500": !stock.bullish,
+                            "text-green-500": stock.bullish,
+                          })}
+                        >
+                          {stock.change} ({stock.changePer}%)
+                        </p>
+                      </div>
+                    </Link>
                   </li>
                 ))}
               </ul>

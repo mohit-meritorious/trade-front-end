@@ -17,8 +17,10 @@ export default function TradingChart() {
         background: { type: ColorType.Solid, color: backgroundColor },
         textColor,
       },
+      crosshair: { mode: 0 },
       timeScale: {
         timeVisible: true,
+        secondsVisible: false,
       },
       width: chartContainerRef.current.clientWidth,
       height: 700,
@@ -35,7 +37,7 @@ export default function TradingChart() {
         wickDownColor: "#ef5350",
       });
       let res = await axios(
-        "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m"
+        "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=4h"
       );
       let data = res.data.map((d) => ({
         time: d[0] / 1000,
@@ -44,10 +46,10 @@ export default function TradingChart() {
         low: +d[3],
         close: +d[4],
       }));
-      console.log(data);
+      // console.log(data);
       // candlestickSeries.setData(data.initialData);
-      chart.timeScale().fitContent();
-      chart.timeScale().scrollToPosition(5);
+      // chart.timeScale().fitContent();
+      // chart.timeScale().scrollToPosition(5);
 
       candlestickSeries.setData(data);
     })();

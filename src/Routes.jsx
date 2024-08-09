@@ -32,7 +32,7 @@ export default function Routes() {
           path: "/top-gainers-losers",
           Component: TopGainerOrLoser,
         },
-        { path: "/trading-chart", Component: TradingChart },
+        { path: "/chart", Component: TradingChart },
       ],
     },
     // add more routes as needed

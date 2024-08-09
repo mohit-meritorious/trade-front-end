@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function AllIndices() {
   const INDICES = [
@@ -152,7 +153,7 @@ export default function AllIndices() {
                   scope="row"
                   className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
                 >
-                  {index.name}
+                  <Link to={"/chart"}>{index.name}</Link>
                 </th>
 
                 <td className="px-6 py-4">{index.value}</td>
