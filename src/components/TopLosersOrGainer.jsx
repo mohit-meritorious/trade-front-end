@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { useState } from "react";
-import StockCard from "./StockCard";
+import StockCard from "./stock/StockCard";
 import { Link } from "react-router-dom";
 
 export default function TopLosersOrGainer({ heading, data }) {

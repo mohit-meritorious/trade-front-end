@@ -1,5 +1,5 @@
 import React from "react";
-import StockCard from "./StockCard";
+import StockCard from "./stock/StockCard";
 
 const MOST_BAUGHT = [
   {
