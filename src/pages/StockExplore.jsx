@@ -9,6 +9,7 @@ const GAINERS = {
   large: [
     {
       name: "Britannia Industries",
+      symbol: "britannia-industries",
       stockPrice: "₹5,880.00",
       change: "182.10",
       changeInPer: "3.20",
@@ -16,6 +17,7 @@ const GAINERS = {
     },
     {
       name: "JSW Steel",
+      symbol: "jsw-steel",
       stockPrice: "₹889.20",
       change: "25.40",
       changeInPer: "2.94",
@@ -23,6 +25,7 @@ const GAINERS = {
     },
     {
       name: "Adani Total Gas",
+      symbol: "adani-total-gas",
       stockPrice: "₹882.10",
       change: "25.05",
       changeInPer: "2.92",
@@ -30,6 +33,7 @@ const GAINERS = {
     },
     {
       name: "Avenue Supermarts",
+      symbol: "avenue-supermarts",
       stockPrice: "₹4950.05",
       change: "132.60",
       changeInPer: "2.75",
@@ -39,6 +43,7 @@ const GAINERS = {
   mid: [
     {
       name: "Patanjali Foods",
+      symbol: "patanjali-foods",
       stockPrice: "₹1766.00",
       change: "80.25",
       changeInPer: "4.76",
@@ -46,6 +51,7 @@ const GAINERS = {
     },
     {
       name: "Godrej Properties",
+      symbol: "godrej-properties",
       stockPrice: "₹2,965.45",
       change: "130.20",
       changeInPer: "4.59",
@@ -53,6 +59,7 @@ const GAINERS = {
     },
     {
       name: "Deepak Nitrite",
+      symbol: "deepak-nitrite",
       stockPrice: "₹3048.05",
       change: "94.60",
       changeInPer: "3.20",
@@ -60,6 +67,7 @@ const GAINERS = {
     },
     {
       name: "Supreme Industries",
+      symbol: "supreme-industries",
       stockPrice: "₹5,086.40",
       change: "115.50",
       changeInPer: "2.32",
@@ -69,6 +77,7 @@ const GAINERS = {
   small: [
     {
       name: "BLS Intl Serv",
+      symbol: "bls-intl-serv",
       stockPrice: "₹384.40",
       change: "34.50",
       changeInPer: "9.86",
@@ -76,6 +85,7 @@ const GAINERS = {
     },
     {
       name: "Triveni Turbine",
+      symbol: "triveni-turbine",
       stockPrice: "₹628.10",
       change: "32.45",
       changeInPer: "5.45",
@@ -83,6 +93,7 @@ const GAINERS = {
     },
     {
       name: "Himadri Spl Chem",
+      symbol: "himadri-spl-chem",
       stockPrice: "₹475.25",
       change: "22.60",
       changeInPer: "4.99",
@@ -90,6 +101,7 @@ const GAINERS = {
     },
     {
       name: "Firstsource Soln",
+      symbol: "firstsource-soln",
       stockPrice: "₹289.05",
       change: "13.50",
       changeInPer: "4.90",

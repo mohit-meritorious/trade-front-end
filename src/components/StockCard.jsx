@@ -8,10 +8,11 @@ export default function StockCard({
   changeInPer,
   stockPrice,
   bullish,
+  symbol,
 }) {
   return (
     <li className="p-4 space-y-3 border rounded-lg">
-      <Link to={"/chart"}>
+      <Link to={"/stocks/" + symbol}>
         <div className="w-10 h-10 text-xl leading-10 text-center text-white rounded-lg bg-primary-500">
           {companyName.charAt(0).toUpperCase()}
         </div>

@@ -48,6 +48,7 @@ export default function TopLosersOrGainer({ heading, data }) {
           <StockCard
             key={stock.name}
             companyName={stock.name}
+            symbol={stock.symbol}
             stockPrice={stock.stockPrice}
             change={stock.change}
             changeInPer={stock.changeInPer}
