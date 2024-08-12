@@ -37,7 +37,7 @@ export default function HoldingDetail({ holdings }) {
                 </div>
               </th>
 
-              <td className="px-6 py-4 ">
+              <td className="px-6 py-4">
                 ₹{stock.price}{" "}
                 <div
                   className={classNames("text-xs", {
