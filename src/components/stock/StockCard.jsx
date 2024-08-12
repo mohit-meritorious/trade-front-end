@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
+import StockProfile from "./StockProfile";
 
 export default function StockCard({
   companyName,
@@ -13,9 +14,7 @@ export default function StockCard({
   return (
     <li className="p-4 space-y-3 border rounded-lg">
       <Link to={"/stocks/" + symbol}>
-        <div className="w-10 h-10 text-xl leading-10 text-center text-white rounded-lg bg-primary-500">
-          {companyName.charAt(0).toUpperCase()}
-        </div>
+        <StockProfile companyName={companyName} />
         <h4 className="text-sm">{companyName}</h4>
         <div className="text-xs">{stockPrice}</div>
         <div

@@ -21,7 +21,7 @@ export default function StockDetail() {
       <Breadcrumb links={BREADCRUMB} />
       <div className="flex space-y-4">
         <div className="w-2/3">
-          <StockDetailChart />
+          <StockDetailChart companyName={stockName} />
         </div>
         <div className="w-1/3">
           <StockOrder />
