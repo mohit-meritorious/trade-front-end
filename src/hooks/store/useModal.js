@@ -1,5 +1,9 @@
 import { create } from "zustand";
-export const MODAL_TYPES = { SEARCH: "seacrh", PERFORMANCE: "performance" };
+export const MODAL_TYPES = {
+  SEARCH: "seacrh",
+  PERFORMANCE: "performance",
+  ANALYST_ESTIMATES: "analyst-estimates",
+};
 const useModal = create((set) => ({
   open: false,
   type: "",

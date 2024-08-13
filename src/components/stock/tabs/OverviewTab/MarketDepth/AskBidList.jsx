@@ -4,14 +4,13 @@ import classNames from "classnames";
 
 export default function AskBidList({ type, data = [], total }) {
   const max = Math.max(...data.map((data) => data.qty));
-  console.log({ max });
 
   return (
     <div className="grid grid-cols-2 gap-3 p-5 text-sm border-r border-daspeer-aria-hidden:">
       <div>{type === "bid" ? "Bid" : "Ask"} Price</div>
       <div className="text-right">Qty</div>
       {data.map((data) => (
-        <Fragment>
+        <Fragment key={data.price}>
           <div> {formatNumberWithCommas(data.price)}</div>
           <div className="text-right">
             <span

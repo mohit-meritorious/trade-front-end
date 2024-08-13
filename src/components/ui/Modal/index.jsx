@@ -5,6 +5,7 @@ import SearchModal from "./SearchModal";
 import classNames from "classnames";
 import ModalOverlay from "./ModalOverlay";
 import PerformanceModal from "./PerformanceModal";
+import AnalystEstimatesModal from "./AnalystEstimatesModal";
 
 export default function Modal() {
   const { open, type, top, left, right, bottom, width, closeModal } =
@@ -29,7 +30,7 @@ export default function Modal() {
   if (width !== undefined) {
     modalPosition.width = width + "px";
   } else {
-    modalPosition.width = "100%";
+    modalPosition.width = "600px";
   }
 
   useEffect(() => {
@@ -59,13 +60,17 @@ export default function Modal() {
             hidden: !open,
             "bg-white p-4 max-h-[500px] space-y-4 rounded-b-lg":
               type === MODAL_TYPES.SEARCH,
-            "inset-0 grid place-items-center": type !== MODAL_TYPES.SEARCH,
+            "top-1/2  left-1/2 -translate-y-1/2 -translate-x-1/2 grid place-items-center":
+              type !== MODAL_TYPES.SEARCH,
           })}
           style={modalPosition}
         >
           {type === MODAL_TYPES.SEARCH && <SearchModal />}
-          <div className="bg-white p-5 max-h-[500px] w-[600px] space-y-4 rounded-lg">
+          <div className="bg-white p-5 max-h-[500px]  space-y-4 rounded-lg">
             {type === MODAL_TYPES.PERFORMANCE && <PerformanceModal />}
+            {type === MODAL_TYPES.ANALYST_ESTIMATES && (
+              <AnalystEstimatesModal />
+            )}
           </div>
         </motion.div>
       )}
