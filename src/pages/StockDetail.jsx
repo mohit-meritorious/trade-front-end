@@ -5,6 +5,7 @@ import { firstLetterCapital } from "../utils/string";
 import StockDetailChart from "../components/stock/StockDetailChart";
 import StockOrder from "../components/stock/StockOrder";
 import Tabs from "../components/Tabs";
+import OverviewTab from "../components/stock/tabs/OverviewTab";
 export default function StockDetail() {
   const param = useParams();
   const stockName = param.stock_name
@@ -36,9 +37,7 @@ export default function StockDetail() {
             handleTabChange={setActiveTab}
             tabs={TABS}
           >
-            {TABS[activeTab].value === "overview" && (
-              <div>Overview Tab Content</div>
-            )}
+            {TABS[activeTab].value === "overview" && <OverviewTab />}
             {TABS[activeTab].value === "news" && <div>News Tab Content</div>}
             {TABS[activeTab].value === "events" && (
               <div>Events Tab Content</div>
