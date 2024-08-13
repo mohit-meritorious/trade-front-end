@@ -31,7 +31,6 @@ export default function Search({ headerRef }) {
       window.removeEventListener("resize", handleResize);
     };
   }, [headerHeight, open, openModal]);
-  console.log(headerHeight);
 
   return (
     <>

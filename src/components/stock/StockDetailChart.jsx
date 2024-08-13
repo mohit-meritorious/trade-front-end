@@ -55,7 +55,7 @@ export default function StockDetailChart({ companyName }) {
         <div className="flex items-end gap-2">
           <div className="text-base">
             <span>₹</span>
-            <span>2921.25</span>
+            <span>2933.85</span>
           </div>
           <div
             className={classNames("text-xs", {
