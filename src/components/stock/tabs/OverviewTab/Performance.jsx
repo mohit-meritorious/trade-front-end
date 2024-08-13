@@ -2,7 +2,7 @@ import React from "react";
 import Heading3 from "../../../ui/Heading3";
 import InfoIcon from "../../../Icon/InfoIcon";
 import useModal, { MODAL_TYPES } from "../../../../hooks/store/useModal";
-import { formatNumberWithCommas } from "../../../../utils/number";
+
 import LowHighIndicator from "./LowHighIndicator";
 
 export default function Performance() {

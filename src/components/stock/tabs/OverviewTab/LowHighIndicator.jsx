@@ -9,12 +9,12 @@ export default function LowHighIndicator({
   highText = "Today's High",
 }) {
   return (
-    <div className="flex items-center gap-5">
+    <div className="flex items-center justify-around gap-5">
       <div className="text-xs shrink-0">
         <p>{lowText}</p>
         <p>{formatNumberWithCommas(low)}</p>
       </div>
-      <div className="text-xs grow">
+      <div className="text-xs w-[600px]">
         <div className="w-full h-1 rounded-full bg-primary-500"></div>
         <div className="relative">
           <span
