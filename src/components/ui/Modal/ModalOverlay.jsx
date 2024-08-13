@@ -13,9 +13,7 @@ export default function ModalOverlay() {
     <motion.div
       animate={open ? "open" : "closed"}
       variants={variants}
-      onClick={() => {
-        closeModal();
-      }}
+      onClick={closeModal}
       className={classNames("bg-[rgba(0,0,0,0.5)] inset-0 fixed", {
         hidden: !open,
       })}

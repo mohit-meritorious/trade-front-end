@@ -1,9 +1,10 @@
 import React, { Fragment, useEffect } from "react";
-import useModal from "../../../hooks/store/useModal";
+import useModal, { MODAL_TYPES } from "../../../hooks/store/useModal";
 import { motion } from "framer-motion";
 import SearchModal from "./SearchModal";
 import classNames from "classnames";
 import ModalOverlay from "./ModalOverlay";
+import PerformanceModal from "./PerformanceModal";
 
 export default function Modal() {
   const { open, type, top, left, right, bottom, width } = useModal();
@@ -26,13 +27,13 @@ export default function Modal() {
   }
   if (width !== undefined) {
     modalPosition.width = width + "px";
+  } else {
+    modalPosition.width = "100%";
   }
 
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
     }
   }, [open]);
   return (
@@ -41,15 +42,18 @@ export default function Modal() {
         <motion.div
           animate={open ? "open" : "closed"}
           variants={variants}
-          className={classNames(
-            "bg-white p-4 max-h-[500px] space-y-4 fixed z-20 overflow-y-auto rounded-b-lg",
-            {
-              hidden: !open,
-            }
-          )}
+          className={classNames("fixed z-30 overflow-y-auto", {
+            hidden: !open,
+            "bg-white p-4 max-h-[500px] space-y-4 rounded-b-lg":
+              type === MODAL_TYPES.SEARCH,
+            "inset-0 grid place-items-center": type !== MODAL_TYPES.SEARCH,
+          })}
           style={modalPosition}
         >
-          {type === "search" && <SearchModal />}
+          {type === MODAL_TYPES.SEARCH && <SearchModal />}
+          <div className="bg-white p-5 max-h-[500px] w-[600px] space-y-4 rounded-lg">
+            {type === MODAL_TYPES.PERFORMANCE && <PerformanceModal />}
+          </div>
         </motion.div>
       )}
       <ModalOverlay />

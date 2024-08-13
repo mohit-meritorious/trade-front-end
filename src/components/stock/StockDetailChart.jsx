@@ -67,7 +67,7 @@ export default function StockDetailChart({ companyName }) {
           </div>
         </div>
       </div>
-      <div ref={chartContainerRef} className="w-full h-96"></div>
+      <div ref={chartContainerRef} className="relative w-full h-96 -z-10"></div>
     </div>
   );
 }

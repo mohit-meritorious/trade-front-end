@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import SearchIcon from "../Icon/SearchIcon";
 import classNames from "classnames";
-import useModal from "../../hooks/store/useModal";
+import useModal, { MODAL_TYPES } from "../../hooks/store/useModal";
 
 export default function Search({ headerRef }) {
   const { openModal, type, open } = useModal();
@@ -17,7 +17,7 @@ export default function Search({ headerRef }) {
         return;
       }
       openModal(
-        "search",
+        MODAL_TYPES.SEARCH,
         {
           top: headerHeight,
           right: 0,
@@ -37,8 +37,11 @@ export default function Search({ headerRef }) {
     <>
       <div
         className={classNames(
-          "relative z-20 flex items-center w-full px-4 py-2 text-base bg-white border transition-all duration-300 global-search border-gray-150",
-          { "rounded-t-lg": type === "search", "rounded-lg": type !== "search" }
+          "relative  flex items-center w-full px-4 py-2 text-base bg-white border transition-all duration-300 global-search border-gray-150",
+          {
+            "rounded-t-lg z-20": type === MODAL_TYPES.SEARCH,
+            "rounded-lg": type !== MODAL_TYPES.SEARCH,
+          }
         )}
         ref={searchRef}
       >
@@ -50,7 +53,7 @@ export default function Search({ headerRef }) {
             placeholder="What are you looking for today?"
             onFocus={() => {
               openModal(
-                "search",
+                MODAL_TYPES.SEARCH,
                 {
                   top: headerHeight,
                   right: 0,
