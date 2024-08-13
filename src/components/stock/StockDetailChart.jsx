@@ -3,8 +3,10 @@ import { createChart } from "lightweight-charts";
 import React, { useEffect, useRef } from "react";
 import StockProfile from "./StockProfile";
 import classNames from "classnames";
+import useModal from "../../hooks/store/useModal";
 
 export default function StockDetailChart({ companyName }) {
+  const { open } = useModal();
   const chartContainerRef = useRef(null);
   useEffect(() => {
     if (!chartContainerRef.current) {
@@ -67,7 +69,10 @@ export default function StockDetailChart({ companyName }) {
           </div>
         </div>
       </div>
-      <div ref={chartContainerRef} className="relative w-full h-96 -z-10"></div>
+      <div
+        ref={chartContainerRef}
+        className={classNames("relative w-full h-96", { "-z-10": open })}
+      ></div>
     </div>
   );
 }

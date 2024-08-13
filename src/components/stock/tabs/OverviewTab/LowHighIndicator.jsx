@@ -9,7 +9,7 @@ export default function LowHighIndicator({
   highText = "Today's High",
 }) {
   return (
-    <div className="flex items-center justify-around gap-5">
+    <div className="flex items-center justify-between gap-5">
       <div className="text-xs shrink-0">
         <p>{lowText}</p>
         <p>{formatNumberWithCommas(low)}</p>
