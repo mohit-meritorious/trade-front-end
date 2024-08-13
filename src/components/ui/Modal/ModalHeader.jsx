@@ -6,7 +6,7 @@ import useModal from "../../../hooks/store/useModal";
 export default function ModalHeader({ heading, description }) {
   const { closeModal } = useModal();
   return (
-    <div cclassName="space-y-3">
+    <div className="space-y-3">
       <div className="flex">
         <Heading3 heading={heading} className={"grow"} />
         <button onClick={closeModal}>

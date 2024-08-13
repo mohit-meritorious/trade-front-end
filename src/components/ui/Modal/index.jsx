@@ -7,7 +7,8 @@ import ModalOverlay from "./ModalOverlay";
 import PerformanceModal from "./PerformanceModal";
 
 export default function Modal() {
-  const { open, type, top, left, right, bottom, width } = useModal();
+  const { open, type, top, left, right, bottom, width, closeModal } =
+    useModal();
   const variants = {
     open: { opacity: 1, duration: 300 },
     closed: { opacity: 0, duration: 300 },
@@ -32,10 +33,22 @@ export default function Modal() {
   }
 
   useEffect(() => {
+    const keyDownHandler = (e) => {
+      if (e.code === "Escape") {
+        closeModal();
+      }
+
+      // if()
+    };
     if (open) {
       document.body.style.overflow = "hidden";
+      window.addEventListener("keydown", keyDownHandler);
     }
-  }, [open]);
+    return () => {
+      window.removeEventListener("keydown", keyDownHandler);
+    };
+  }, [closeModal, open]);
+
   return (
     <Fragment>
       {open && (
