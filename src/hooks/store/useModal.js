@@ -3,6 +3,7 @@ export const MODAL_TYPES = {
   SEARCH: "seacrh",
   PERFORMANCE: "performance",
   ANALYST_ESTIMATES: "analyst-estimates",
+  FUNDAMENTALS: "fundamentals",
 };
 const useModal = create((set) => ({
   open: false,

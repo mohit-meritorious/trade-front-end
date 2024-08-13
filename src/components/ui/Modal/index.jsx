@@ -6,6 +6,7 @@ import classNames from "classnames";
 import ModalOverlay from "./ModalOverlay";
 import PerformanceModal from "./PerformanceModal";
 import AnalystEstimatesModal from "./AnalystEstimatesModal";
+import FundamentalsMdoal from "./FundamentalsModal";
 
 export default function Modal() {
   const { open, type, top, left, right, bottom, width, closeModal } =
@@ -44,6 +45,8 @@ export default function Modal() {
     if (open) {
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", keyDownHandler);
+    } else {
+      document.body.style.overflow = "auto";
     }
     return () => {
       window.removeEventListener("keydown", keyDownHandler);
@@ -56,22 +59,21 @@ export default function Modal() {
         <motion.div
           animate={open ? "open" : "closed"}
           variants={variants}
-          className={classNames("fixed z-30 overflow-y-auto", {
-            hidden: !open,
-            "bg-white p-4 max-h-[500px] space-y-4 rounded-b-lg":
-              type === MODAL_TYPES.SEARCH,
-            "top-1/2  left-1/2 -translate-y-1/2 -translate-x-1/2 grid place-items-center":
-              type !== MODAL_TYPES.SEARCH,
-          })}
+          className={classNames(
+            "fixed z-30 bg-white  p-5 max-h-[500px] space-y-4 overflow-y-auto",
+            {
+              hidden: !open,
+              "rounded-b-lg": type === MODAL_TYPES.SEARCH,
+              "top-1/2 left-1/2 rounded-lg -translate-y-1/2 -translate-x-1/2 grid place-items-center":
+                type !== MODAL_TYPES.SEARCH,
+            }
+          )}
           style={modalPosition}
         >
           {type === MODAL_TYPES.SEARCH && <SearchModal />}
-          <div className="bg-white p-5 max-h-[500px]  space-y-4 rounded-lg">
-            {type === MODAL_TYPES.PERFORMANCE && <PerformanceModal />}
-            {type === MODAL_TYPES.ANALYST_ESTIMATES && (
-              <AnalystEstimatesModal />
-            )}
-          </div>
+          {type === MODAL_TYPES.PERFORMANCE && <PerformanceModal />}
+          {type === MODAL_TYPES.ANALYST_ESTIMATES && <AnalystEstimatesModal />}
+          {type === MODAL_TYPES.FUNDAMENTALS && <FundamentalsMdoal />}
         </motion.div>
       )}
       <ModalOverlay />
