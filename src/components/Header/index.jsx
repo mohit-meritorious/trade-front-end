@@ -1,10 +1,11 @@
 import classNames from "classnames";
-import React from "react";
+import React, { useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Search from "./Search";
 
 export default function Header() {
   const location = useLocation();
+  const headerRef = useRef();
 
   const MENU_ITEMS = [
     {
@@ -24,7 +25,7 @@ export default function Header() {
   ];
   return (
     <section className="py-2">
-      <div className="container">
+      <div ref={headerRef} className="container">
         <div className="flex items-center justify-between gap-10">
           <div className="text-xl text-primary-500">LOGO</div>
           <nav>
@@ -47,7 +48,7 @@ export default function Header() {
               ))}
             </ul>
           </nav>
-          <Search />
+          <Search headerRef={headerRef} />
 
           <div className="profile">
             <div className="w-10 h-10 text-xl leading-10 text-center text-white rounded-full bg-primary-500">
