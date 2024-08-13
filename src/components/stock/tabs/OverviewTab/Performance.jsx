@@ -46,7 +46,7 @@ export default function Performance() {
 
       <ul className="grid grid-cols-4 gap-4">
         {DATA.map((data) => (
-          <li className="text-sm">
+          <li className="text-sm" key={data.name}>
             <p>{data.name}</p>
             <p>
               {typeof data.value === "number"
