@@ -3,6 +3,7 @@ import Performance from "./Performance";
 import MarketDepth from "./MarketDepth";
 import AnalystEstimates from "./AnalystEstimates";
 import Fundamentals from "./Fundamentals";
+import Financials from "./Financials";
 
 export default function OverviewTab() {
   return (
@@ -11,6 +12,7 @@ export default function OverviewTab() {
       <MarketDepth />
       <AnalystEstimates />
       <Fundamentals />
+      <Financials />
     </div>
   );
 }
