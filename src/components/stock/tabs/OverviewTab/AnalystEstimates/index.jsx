@@ -43,7 +43,7 @@ export default function AnalystEstimates() {
               <span className="text-sm">{analyst.value}%</span>
             </div>
           ))}
-          <div class="text-gray-500 text-sm">
+          <div className="text-sm text-gray-500">
             Aggregated by Refinitiv from 32 Analysts
           </div>
         </div>
