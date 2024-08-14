@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Heading3 from "../../../ui/Heading3";
 import classNames from "classnames";
-import Heading6 from "../../../ui/Heading6";
+
 import { formatNumberWithCommas } from "../../../../utils/number";
 const DATA = {
   "Jun '24": [
