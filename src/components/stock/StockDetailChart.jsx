@@ -23,6 +23,12 @@ export default function StockDetailChart({ companyName }) {
       chart.applyOptions({ width: chartContainerRef.current.clientWidth });
     };
     (async function () {
+      chart.timeScale().fitContent();
+      const areaSeries = chart.addAreaSeries({
+        lineColor: true ? "red" : "green",
+        topColor: "transparent",
+        // bottomColor: "rgba(41, 98, 255, 0.28)",
+      });
       let res = await axios(
         "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=4h"
       );
@@ -34,11 +40,6 @@ export default function StockDetailChart({ companyName }) {
         close: +d[4],
       }));
 
-      const areaSeries = chart.addAreaSeries({
-        lineColor: true ? "red" : "green",
-        topColor: "transparent",
-        // bottomColor: "rgba(41, 98, 255, 0.28)",
-      });
       areaSeries.setData(
         data.map((data) => ({ time: data.time, value: data.close }))
       );

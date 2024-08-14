@@ -17,7 +17,7 @@ export default function StockDetail() {
 
   const BREADCRUMB = [
     { name: "Home", link: "stock/explore" },
-    { name: "Stocks", link: "/stocks/explore" },
+    { name: "Stocks", link: "/stock/explore" },
     { name: stockName, link: "/stocks/explore" },
   ];
   const [activeTab, setActiveTab] = useState(0);
@@ -31,7 +31,7 @@ export default function StockDetail() {
   return (
     <div className="space-y-4">
       <Breadcrumb links={BREADCRUMB} />
-      <div className="flex gap-4 space-y-4">
+      <div className="flex gap-10 space-y-4">
         <div className="w-3/4 ">
           <StockDetailChart companyName={stockName} />
           <Tabs
