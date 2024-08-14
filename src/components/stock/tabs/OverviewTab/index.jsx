@@ -6,6 +6,7 @@ import Fundamentals from "./Fundamentals";
 import Financials from "./Financials";
 import About from "./About";
 import ShareHoldingPattern from "./ShareHoldingPattern";
+import SimiliarStocks from "./SimiliarStocks";
 
 export default function OverviewTab() {
   return (
@@ -17,6 +18,7 @@ export default function OverviewTab() {
       <Financials />
       <About />
       <ShareHoldingPattern />
+      <SimiliarStocks />
     </div>
   );
 }

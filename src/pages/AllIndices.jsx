@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
+import Table from "../components/ui/Table";
 
 export default function AllIndices() {
   const INDICES = [
@@ -126,61 +127,39 @@ export default function AllIndices() {
   ];
   return (
     <div className="mt-10">
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
-            <tr className="border-b border-gray-200 dark:border-gray-700">
-              {TABLE_HEADINGS.map((heading, i) => (
-                <th
-                  scope="col"
-                  key={heading}
-                  className={classNames("px-6 py-4", {
-                    "bg-gray-50 dark:bg-gray-800": i % 2 === 0,
-                  })}
-                >
-                  {heading}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {INDICES.map((index) => (
-              <tr
-                className="border-b border-gray-200 dark:border-gray-700"
-                key={index.name}
-              >
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
-                >
-                  <Link to={"/chart"}>{index.name}</Link>
-                </th>
+      <Table headings={TABLE_HEADINGS}>
+        {INDICES.map((index) => (
+          <tr
+            className="border-b border-gray-200 dark:border-gray-700"
+            key={index.name}
+          >
+            <th
+              scope="row"
+              className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800"
+            >
+              <Link to={"/chart"}>{index.name}</Link>
+            </th>
 
-                <td className="px-6 py-4">{index.value}</td>
-                <td
-                  className={classNames(
-                    "px-6 py-4 bg-gray-50 dark:bg-gray-800",
-                    {
-                      "text-green-500": index.bullish,
-                      "text-red-500": !index.bullish,
-                    }
-                  )}
-                >
-                  {index.change} <span>({index.percentChange}%)</span>
-                </td>
-                <td className="px-6 py-4">{index.high}</td>
-                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                  {index.low}
-                </td>
-                <td className="px-6 py-4">{index.open}</td>
-                <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                  {index.prevClose}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            <td className="px-6 py-4">{index.value}</td>
+            <td
+              className={classNames("px-6 py-4 bg-gray-50 dark:bg-gray-800", {
+                "text-green-500": index.bullish,
+                "text-red-500": !index.bullish,
+              })}
+            >
+              {index.change} <span>({index.percentChange}%)</span>
+            </td>
+            <td className="px-6 py-4">{index.high}</td>
+            <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+              {index.low}
+            </td>
+            <td className="px-6 py-4">{index.open}</td>
+            <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
+              {index.prevClose}
+            </td>
+          </tr>
+        ))}
+      </Table>
     </div>
   );
 }
