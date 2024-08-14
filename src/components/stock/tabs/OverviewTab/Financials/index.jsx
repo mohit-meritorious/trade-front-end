@@ -4,17 +4,14 @@ import { VictoryBar, VictoryChart, VictoryAxis, VictoryLabel } from "victory";
 import { formatNumberWithCommas } from "../../../../../utils/number";
 import classNames from "classnames";
 import { firstLetterCapital } from "../../../../../utils/string";
-const TABS = [
-  { name: "Yearly", value: "yearly" }, // value must match with result keys
-  { name: "Quarterly", value: "quarterly" }, // value must match with result keys
-];
+
 const HEADING_TABS = [
   { name: "Revenue", value: "revenue" },
   { name: "Profit", value: "profit" },
   { name: "Net Worth", value: "net_worth" },
 ];
 export default function Financials() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState("quarterly");
   const [activeHeadingTab, setActiveHedingTab] = useState(0);
 
   const DATA = {
@@ -61,8 +58,7 @@ export default function Financials() {
     },
   };
 
-  const chartData =
-    DATA[HEADING_TABS[activeHeadingTab].value][TABS[activeTab].value];
+  const chartData = DATA[HEADING_TABS[activeHeadingTab].value][activeTab];
 
   return (
     <div className="space-y-4">
@@ -73,7 +69,7 @@ export default function Financials() {
             key={tab.name}
             onClick={() => {
               setActiveHedingTab(tabIndex);
-              setActiveTab(0);
+              setActiveTab(Object.keys(DATA[HEADING_TABS[tabIndex].value])[0]);
             }}
             className={classNames(
               "px-4 py-1 text-xs  rounded-full border cursor-pointer",
@@ -120,25 +116,23 @@ export default function Financials() {
       </VictoryChart>
 
       <ul className="flex space-x-4">
-        {Object.keys(DATA[HEADING_TABS[activeHeadingTab].value]).map(
-          (tab, tabIndex) => (
-            <li
-              key={tab}
-              onClick={() => {
-                setActiveTab(tabIndex);
-              }}
-              className={classNames(
-                "px-4 py-1 text-xs  rounded-full border cursor-pointer",
-                {
-                  "text-primary-500 border-primary-500": activeTab === tabIndex,
-                  "text-gray-500 border-gray-150": activeTab !== tabIndex,
-                }
-              )}
-            >
-              {firstLetterCapital(tab)}
-            </li>
-          )
-        )}
+        {Object.keys(DATA[HEADING_TABS[activeHeadingTab].value]).map((tab) => (
+          <li
+            key={tab}
+            onClick={() => {
+              setActiveTab(tab);
+            }}
+            className={classNames(
+              "px-4 py-1 text-xs  rounded-full border cursor-pointer",
+              {
+                "text-primary-500 border-primary-500": activeTab === tab,
+                "text-gray-500 border-gray-150": activeTab !== tab,
+              }
+            )}
+          >
+            {firstLetterCapital(tab)}
+          </li>
+        ))}
       </ul>
     </div>
   );
