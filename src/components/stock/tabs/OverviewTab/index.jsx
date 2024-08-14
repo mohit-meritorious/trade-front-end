@@ -5,6 +5,7 @@ import AnalystEstimates from "./AnalystEstimates";
 import Fundamentals from "./Fundamentals";
 import Financials from "./Financials";
 import About from "./About";
+import ShareHoldingPattern from "./ShareHoldingPattern";
 
 export default function OverviewTab() {
   return (
@@ -15,6 +16,7 @@ export default function OverviewTab() {
       <Fundamentals />
       <Financials />
       <About />
+      <ShareHoldingPattern />
     </div>
   );
 }
