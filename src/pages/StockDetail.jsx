@@ -6,6 +6,7 @@ import StockDetailChart from "../components/stock/StockDetailChart";
 import StockOrder from "../components/stock/StockOrder";
 import Tabs from "../components/Tabs";
 import OverviewTab from "../components/stock/tabs/OverviewTab";
+import News from "../components/stock/tabs/News";
 export default function StockDetail() {
   const param = useParams();
   const stockName = param.stock_name
@@ -23,8 +24,8 @@ export default function StockDetail() {
   const TABS = [
     { name: "Overview", value: "overview" },
     { name: "News", value: "news" },
-    { name: "Events", value: "events" },
-    { name: "F&O", value: "fno" },
+    // { name: "Events", value: "events" },
+    // { name: "F&O", value: "fno" },
   ];
   return (
     <div className="space-y-4">
@@ -38,11 +39,11 @@ export default function StockDetail() {
             tabs={TABS}
           >
             {TABS[activeTab].value === "overview" && <OverviewTab />}
-            {TABS[activeTab].value === "news" && <div>News Tab Content</div>}
-            {TABS[activeTab].value === "events" && (
+            {TABS[activeTab].value === "news" && <News />}
+            {/* {TABS[activeTab].value === "events" && (
               <div>Events Tab Content</div>
             )}
-            {TABS[activeTab].value === "fno" && <div>F&O Tab Content</div>}
+            {TABS[activeTab].value === "fno" && <div>F&O Tab Content</div>} */}
           </Tabs>
         </div>
         <div className="w-1/3">
