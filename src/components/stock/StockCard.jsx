@@ -12,8 +12,8 @@ export default function StockCard({
   symbol,
 }) {
   return (
-    <li className="p-4 space-y-3 border rounded-lg">
-      <Link to={"/stocks/" + symbol}>
+    <li className="p-4 border rounded-lg">
+      <Link to={"/stocks/" + symbol} className="space-y-3">
         <StockProfile companyName={companyName} />
         <h4 className="text-sm">{companyName}</h4>
         <div className="text-xs">{stockPrice}</div>
