@@ -7,6 +7,7 @@ import StockOrder from "../components/stock/StockOrder";
 import Tabs from "../components/Tabs";
 import OverviewTab from "../components/stock/tabs/OverviewTab";
 import News from "../components/stock/tabs/News";
+import UnlockStocks from "../components/UnlockStocks";
 export default function StockDetail() {
   const param = useParams();
   const stockName = param.stock_name
@@ -47,6 +48,7 @@ export default function StockDetail() {
           </Tabs>
         </div>
         <div className="w-1/3">
+          <UnlockStocks />
           <StockOrder />
         </div>
       </div>

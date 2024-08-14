@@ -72,6 +72,7 @@ export default function About() {
             className="inline-block object-contain w-16 h-16 border border-gray-200 rounded"
             alt="company logo"
             src={image}
+            key={image}
           />
         ))}
       </div>

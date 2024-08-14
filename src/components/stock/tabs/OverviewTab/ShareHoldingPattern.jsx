@@ -45,7 +45,7 @@ export default function ShareHoldingPattern() {
             .reverse()
             .map((tab) => (
               <li
-                key={tab.name}
+                key={tab}
                 onClick={() => {
                   setActiveTab(tab);
                 }}
