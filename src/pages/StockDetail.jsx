@@ -31,8 +31,8 @@ export default function StockDetail() {
   return (
     <div className="space-y-4">
       <Breadcrumb links={BREADCRUMB} />
-      <div className="flex space-y-4">
-        <div className="w-2/3">
+      <div className="flex gap-4 space-y-4">
+        <div className="w-3/4 ">
           <StockDetailChart companyName={stockName} />
           <Tabs
             activeTab={activeTab}
@@ -47,7 +47,7 @@ export default function StockDetail() {
             {TABS[activeTab].value === "fno" && <div>F&O Tab Content</div>} */}
           </Tabs>
         </div>
-        <div className="w-1/3">
+        <div className="w-1/4 space-y-4 ">
           <UnlockStocks />
           <StockOrder />
         </div>

@@ -5,3 +5,11 @@
 body {
   @apply box-border m-0 text-gray-900 bg-white;
 }
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
