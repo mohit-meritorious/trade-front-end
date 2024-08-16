@@ -4,6 +4,7 @@ export const MODAL_TYPES = {
   PERFORMANCE: "performance",
   ANALYST_ESTIMATES: "analyst-estimates",
   FUNDAMENTALS: "fundamentals",
+  CREATE_WATHCLIST: "create-watchlist",
 };
 const useModal = create((set) => ({
   open: false,

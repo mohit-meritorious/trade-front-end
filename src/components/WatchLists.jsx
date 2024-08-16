@@ -3,6 +3,8 @@ import React, { Fragment, useState } from "react";
 import { motion } from "framer-motion";
 import AccordionChevronIcon from "./Icon/AccordionChevronIcon";
 import { Link } from "react-router-dom";
+import CreateIcon from "./Icon/CreateIcon";
+import useModal, { MODAL_TYPES } from "../hooks/store/useModal";
 
 export default function WatchLists() {
   const [openWatchlist, setOpenWatchlist] = useState(-1);
@@ -138,6 +140,7 @@ export default function WatchLists() {
     }
     return setOpenWatchlist(acordionNumber);
   };
+  const { openModal } = useModal();
 
   return (
     <div className="space-y-4">
@@ -159,9 +162,6 @@ export default function WatchLists() {
                   {
                     "rounded-t-xl": i === 0,
                     "border-b-0": i + 1 !== Object.keys(WATCHLISTS).length,
-                    "rounded-b-xl":
-                      i + 1 === Object.keys(WATCHLISTS).length &&
-                      openWatchlist !== i,
                   }
                 )}
                 data-accordion-target="#accordion-collapse-body-1"
@@ -192,9 +192,6 @@ export default function WatchLists() {
                   "divide-y border border-gray-200  divide-gray-200 dark:divide-gray-700",
                   {
                     "border-b-0 ": i + 1 !== Object.keys(WATCHLISTS).length,
-                    "rounded-b-xl border-t-0":
-                      i + 1 === Object.keys(WATCHLISTS).length &&
-                      openWatchlist === i,
                   }
                 )}
               >
@@ -227,6 +224,14 @@ export default function WatchLists() {
             </motion.div>
           </Fragment>
         ))}
+
+        <button
+          onClick={() => openModal(MODAL_TYPES.CREATE_WATHCLIST)}
+          className="flex items-center w-full p-5 space-x-3 text-sm font-medium transition-all duration-300 border border-gray-200 text-primary-500 rounded-b-xl lg:text-base rtl:text-right focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+        >
+          <CreateIcon className={"size-6"} />
+          <span className="text-sm">Add New Stock </span>
+        </button>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export default function ModalHeader({ heading, description }) {
   const { closeModal } = useModal();
   return (
     <div className="space-y-3">
-      <div className="flex">
+      <div className="flex justify-between w-full">
         <Heading3 heading={heading} className={"grow"} />
         <button onClick={closeModal}>
           <CloseIcon className="transition-all duration-300 size-5 hover:rotate-90" />
