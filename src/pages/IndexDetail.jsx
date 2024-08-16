@@ -5,6 +5,7 @@ import Breadcrumb from "../components/Breadcrumb";
 import StockDetailChart from "../components/stock/StockDetailChart";
 import Tabs from "../components/Tabs";
 import IndexOverview from "../components/Indieces/IndexOverview";
+import PopularIndexOtions from "../components/Indieces/PopularIndexOtions";
 export default function IndexDetail() {
   const param = useParams();
 
@@ -23,9 +24,9 @@ export default function IndexDetail() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 ">
       <Breadcrumb links={BREADCRUMB} />
-      <div className="flex gap-10 space-y-4">
+      <div className="relative flex gap-10 space-y-4">
         <div className="w-3/4 ">
           <StockDetailChart companyName={indexName} />
           <Tabs
@@ -37,7 +38,9 @@ export default function IndexDetail() {
             {TABS[activeTab].value === "fno" && <> FNO</>}
           </Tabs>
         </div>
-        <div></div>
+        <div className="w-1/4 space-y-4">
+          <PopularIndexOtions />
+        </div>
       </div>
     </div>
   );
