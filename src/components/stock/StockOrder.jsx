@@ -14,7 +14,7 @@ export default function StockOrder() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="sticky py-3 space-y-1 border-2 border-gray-200 divide-y rounded top-4">
+    <div className="sticky w-full py-3 space-y-1 border-2 border-gray-200 divide-y rounded top-4">
       <div className="px-3 space-y-1 ">
         {" "}
         <Heading6 heading={"Reliance Industries"} />

@@ -136,14 +136,14 @@ export default function StockExplore() {
           <div className="flex">
             <h2 className="grow">Your Investment</h2>
             <Link
-              to={"/stock/investment"}
+              to={"/stock/investments"}
               className="text-sm transition-all duration-300 text-primary-500 underline-offset-0 hover:underline hover:underline-offset-4"
             >
               Dashboard
             </Link>
           </div>
           <Link
-            to={"/stock/investment"}
+            to={"/stock/investments"}
             className="flex justify-between p-4 border border-gray-200 rounded-md"
           >
             <div className="space-y-2 ">
