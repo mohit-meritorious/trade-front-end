@@ -5,6 +5,7 @@ import TopLosersOrGainer from "../components/TopLosersOrGainer";
 import WatchLists from "../components/WatchLists";
 import MostBought from "../components/MostBought";
 import { Link } from "react-router-dom";
+import { formatNumberWithCommas } from "../utils/number";
 
 const GAINERS = {
   large: [
@@ -146,11 +147,13 @@ export default function StockExplore() {
             className="flex justify-between p-4 border border-gray-200 rounded-md"
           >
             <div className="space-y-2 ">
-              <div className="text-green-500">+ ₹1802</div>
+              <div className="text-green-500">
+                + ₹ {formatNumberWithCommas(1802)}
+              </div>
               <div className="text-xs text-gray-500">Total Reaturns</div>
             </div>
             <div className="space-y-2 text-right">
-              <div>₹18002</div>
+              <div>₹{formatNumberWithCommas(18002)}</div>
               <div className="text-xs text-gray-500">Curren Value</div>
             </div>
           </Link>
