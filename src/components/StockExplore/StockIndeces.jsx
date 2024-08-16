@@ -7,6 +7,7 @@ export default function StockIndeces() {
   const INDICES = [
     {
       name: "NIFTY",
+      symbol: "nifty",
       value: "24241.30",
       change: "+185.70",
       percentChange: "0.77",
@@ -14,6 +15,7 @@ export default function StockIndeces() {
     },
     {
       name: "SENSEX",
+      symbol: "sensex",
       value: "79378.31",
       change: "+618.91",
       percentChange: "0.79",
@@ -21,6 +23,7 @@ export default function StockIndeces() {
     },
     {
       name: "BANKNIFTY",
+      symbol: "bank-nifty",
       value: "50158.25",
       change: "+66.15",
       percentChange: "0.13",
@@ -28,6 +31,7 @@ export default function StockIndeces() {
     },
     {
       name: "FINNIFTY",
+      symbol: "fin-nifty",
       value: "22743.40",
       change: "-19.30",
       percentChange: "0.08",
@@ -35,6 +39,7 @@ export default function StockIndeces() {
     },
     {
       name: "MIDCPNIFTY",
+      symbol: "mid-cap-nifty",
       value: "12436.25",
       change: "+141.90",
       percentChange: "1.15",
@@ -42,6 +47,7 @@ export default function StockIndeces() {
     },
     {
       name: "BANKEX",
+      symbol: "bank-ex",
       value: "57038.34",
       change: "+96.77",
       percentChange: "0.17",
@@ -97,7 +103,7 @@ export default function StockIndeces() {
             }
           }}
         >
-          {INDICES.map((index, i) => (
+          {INDICES.map((index) => (
             <IndexCard
               key={index.name}
               name={index.name}
@@ -105,6 +111,7 @@ export default function StockIndeces() {
               change={index.change}
               percentChange={index.percentChange}
               value={index.value}
+              symbol={index.symbol}
             />
           ))}
         </ul>

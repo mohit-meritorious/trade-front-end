@@ -10,12 +10,18 @@ export default function Breadcrumb({ links }) {
           <li key={link.name}>
             <div className="flex items-center">
               {index !== 0 && <ChevronRightIcon className={"h-5 w-5"} />}
-              <Link
-                to={link.link}
-                className="text-sm font-medium text-gray-700 transition-all duration-300 ms-1 hover:text-primary-500 md:ms-2 dark:text-gray-400 dark:hover:text-white"
-              >
-                {link.name}
-              </Link>
+              {index === links.length - 1 ? (
+                <div className="text-sm font-medium text-gray-700 transition-all duration-300 ms-1 hover:text-primary-500 md:ms-2 dark:text-gray-400 dark:hover:text-white">
+                  {link.name}
+                </div>
+              ) : (
+                <Link
+                  to={link.link}
+                  className="text-sm font-medium text-gray-700 transition-all duration-300 ms-1 hover:text-primary-500 md:ms-2 dark:text-gray-400 dark:hover:text-white"
+                >
+                  {link.name}
+                </Link>
+              )}
             </div>
           </li>
         ))}

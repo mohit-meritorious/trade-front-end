@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import TopGainerOrLoser from "./pages/TopGainerOrLoser";
 import TradingChart from "./components/TradingChart";
 import StockDetail from "./pages/StockDetail";
+import IndexDetail from "./pages/IndexDetail";
 
 export default function Routes() {
   const router = createBrowserRouter([
@@ -34,6 +35,7 @@ export default function Routes() {
           Component: TopGainerOrLoser,
         },
         { path: "/stocks/:stock_name", Component: StockDetail },
+        { path: "/indices/:index_name", Component: IndexDetail },
         { path: "/chart", Component: TradingChart },
       ],
     },
