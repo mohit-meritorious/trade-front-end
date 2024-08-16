@@ -4,6 +4,7 @@ import StockIndeces from "../components/StockExplore/StockIndeces";
 import TopLosersOrGainer from "../components/TopLosersOrGainer";
 import WatchLists from "../components/WatchLists";
 import MostBought from "../components/MostBought";
+import { Link } from "react-router-dom";
 
 const GAINERS = {
   large: [
@@ -129,7 +130,31 @@ export default function StockExplore() {
           data={LOSERS}
         ></TopLosersOrGainer>
       </div>
-      <div className="w-5/12 p-10 ">
+      <div className="w-5/12 p-10 space-y-4 ">
+        <div className="space-y-3">
+          <div className="flex">
+            <h2 className="grow">Your Investment</h2>
+            <Link
+              to={"/stock/investment"}
+              className="text-sm transition-all duration-300 text-primary-500 underline-offset-0 hover:underline hover:underline-offset-4"
+            >
+              Dashboard
+            </Link>
+          </div>
+          <Link
+            to={"/stock/investment"}
+            className="flex justify-between p-4 border border-gray-200 rounded-md"
+          >
+            <div className="space-y-2 ">
+              <div className="text-green-500">+ ₹1802</div>
+              <div className="text-xs text-gray-500">Total Reaturns</div>
+            </div>
+            <div className="space-y-2 text-right">
+              <div>₹18002</div>
+              <div className="text-xs text-gray-500">Curren Value</div>
+            </div>
+          </Link>
+        </div>
         <WatchLists />
       </div>
     </div>

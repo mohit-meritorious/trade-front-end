@@ -27,7 +27,9 @@ export default function Header() {
     <section className="py-2">
       <div ref={headerRef} className="container">
         <div className="flex items-center justify-between gap-10">
-          <div className="text-xl text-primary-500">LOGO</div>
+          <Link className="text-xl text-primary-500" to={"/stock/explore"}>
+            LOGO
+          </Link>
           <nav>
             <ul className="flex ml-10 space-x-3">
               {MENU_ITEMS.map((menuItem) => (
