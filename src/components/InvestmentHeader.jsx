@@ -22,7 +22,7 @@ export default function InvestmentHeader({ holdings }) {
   return (
     <>
       <h2>Holdings ({holdings.length})</h2>
-      <div className="mt-2 border border-gray-200 rounded-lg">
+      <div className="mt-2 overflow-hidden border border-gray-200 rounded-lg">
         <div className="flex p-4 bg-primary-100 ">
           <div className="w-1/2 border-r border-gray-200">
             <h3>₹{formatNumberWithCommas(currentMarketPrice)}</h3>

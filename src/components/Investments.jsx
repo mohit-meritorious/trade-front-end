@@ -42,7 +42,7 @@ const HOLDINGS = [
 ];
 export default function Investments() {
   return (
-    <div className="">
+    <div>
       <InvestmentHeader holdings={HOLDINGS} />
       <HoldingDetail holdings={HOLDINGS} />
     </div>
