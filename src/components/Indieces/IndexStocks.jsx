@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "../ui/Table";
 import { Link } from "react-router-dom";
 import Heading3 from "../ui/Heading3";
@@ -316,12 +316,23 @@ const TABLE_HEADINGS = [
   //   "Prev Close",
 ];
 export default function IndexStocks() {
+  const [page, setPage] = useState(2);
+  const limit = 10;
+
+  const start = (page - 1) * limit;
+
   return (
     <div>
       <Heading3 heading={"NIFTY 50 Companies"} />
       <div className="mt-10">
-        <Table headings={TABLE_HEADINGS}>
-          {DATA.map((index) => (
+        <Table
+          headings={TABLE_HEADINGS}
+          pagination
+          max={DATA.length / limit}
+          setPage={setPage}
+          page={page}
+        >
+          {DATA.slice(start, start + limit).map((index) => (
             <tr
               className="border-b border-gray-200 dark:border-gray-700"
               key={index.name}
