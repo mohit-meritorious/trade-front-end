@@ -16,7 +16,7 @@ export default function StockDetail() {
     .join(" ");
 
   const BREADCRUMB = [
-    { name: "Home", link: "stock/explore" },
+    { name: "Home", link: "/stock/explore" },
     { name: "Stocks", link: "/stock/explore" },
     { name: stockName, link: "/stocks/explore" },
   ];

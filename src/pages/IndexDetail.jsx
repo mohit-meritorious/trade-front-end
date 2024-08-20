@@ -12,7 +12,7 @@ export default function IndexDetail() {
 
   const indexName = param.index_name.toUpperCase();
   const BREADCRUMB = [
-    { name: "Home", link: "stock/explore" },
+    { name: "Home", link: "/stock/explore" },
     { name: "Stocks", link: "/stock/explore" },
     { name: indexName, link: "/stocks/explore" },
   ];
