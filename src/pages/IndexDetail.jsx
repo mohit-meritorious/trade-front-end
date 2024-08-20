@@ -6,6 +6,7 @@ import StockDetailChart from "../components/stock/StockDetailChart";
 import Tabs from "../components/Tabs";
 import IndexOverview from "../components/Indieces/IndexOverview";
 import PopularIndexOtions from "../components/Indieces/PopularIndexOtions";
+import FNOTab from "../components/Indieces/FNOTab";
 export default function IndexDetail() {
   const param = useParams();
 
@@ -35,7 +36,7 @@ export default function IndexDetail() {
             tabs={TABS}
           >
             {TABS[activeTab].value === "overview" && <IndexOverview />}
-            {TABS[activeTab].value === "fno" && <> FNO</>}
+            {TABS[activeTab].value === "fno" && <FNOTab />}
           </Tabs>
         </div>
         <div className="w-1/4 space-y-4">

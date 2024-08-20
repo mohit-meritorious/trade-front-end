@@ -8,6 +8,7 @@ import PerformanceModal from "./PerformanceModal";
 import AnalystEstimatesModal from "./AnalystEstimatesModal";
 import FundamentalsMdoal from "./FundamentalsModal";
 import CreateWatchlistModal from "./CreateWatchlistModal";
+import OpenInterestModal from "./OpenInterestModal";
 
 export default function Modal() {
   const { open, type, top, left, right, bottom, width, closeModal } =
@@ -76,6 +77,7 @@ export default function Modal() {
           {type === MODAL_TYPES.ANALYST_ESTIMATES && <AnalystEstimatesModal />}
           {type === MODAL_TYPES.FUNDAMENTALS && <FundamentalsMdoal />}
           {type === MODAL_TYPES.CREATE_WATHCLIST && <CreateWatchlistModal />}
+          {type === MODAL_TYPES.OPEN_INTEREST && <OpenInterestModal />}
         </motion.div>
       )}
       <ModalOverlay />

@@ -5,6 +5,7 @@ export const MODAL_TYPES = {
   ANALYST_ESTIMATES: "analyst-estimates",
   FUNDAMENTALS: "fundamentals",
   CREATE_WATHCLIST: "create-watchlist",
+  OPEN_INTEREST: "open-interest",
 };
 const useModal = create((set) => ({
   open: false,
